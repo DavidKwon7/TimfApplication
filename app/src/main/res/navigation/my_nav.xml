@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/calculateFragment"
-        android:name="com.example.timfapplication.CalculateFragment"
+        android:name="com.example.timfapplication.presentation.calculate.CalculateFragment"
         android:label="fragment_calculate"
         tools:layout="@layout/fragment_calculate" />
     <fragment
         android:id="@+id/communityFragment"
-        android:name="com.example.timfapplication.CommunityFragment"
+        android:name="com.example.timfapplication.presentation.community.CommunityFragment"
         android:label="fragment_community"
         tools:layout="@layout/fragment_community" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.timfapplication.HomeFragment"
+        android:name="com.example.timfapplication.presentation.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/jobFragment"
-        android:name="com.example.timfapplication.JobFragment"
+        android:name="com.example.timfapplication.presentation.job.JobFragment"
         android:label="fragment_job"
         tools:layout="@layout/fragment_job" />
     <fragment
         android:id="@+id/reviewFragment"
-        android:name="com.example.timfapplication.ReviewFragment"
+        android:name="com.example.timfapplication.presentation.review.ReviewFragment"
         android:label="fragment_review"
         tools:layout="@layout/fragment_review" />
 </navigation>

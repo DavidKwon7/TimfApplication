@@ -1,8 +1,14 @@
-package com.example.timfapplication
+package com.example.timfapplication.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.timfapplication.R
+import com.example.timfapplication.presentation.calculate.CalculateFragment
+import com.example.timfapplication.presentation.community.CommunityFragment
+import com.example.timfapplication.presentation.home.HomeFragment
+import com.example.timfapplication.presentation.job.JobFragment
+import com.example.timfapplication.presentation.review.ReviewFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
