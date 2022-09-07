@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.timfapplication.domain.entity.login.RequestLoginModel
 import com.example.timfapplication.domain.entity.login.ResponseLoginModel
 import com.example.timfapplication.domain.repository.Repository
+import com.example.timfapplication.domain.usecase.PostLoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,13 +17,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val repository: Repository
+    private val postLoginUseCase: PostLoginUseCase
 ) : ViewModel() {
 
     val TAG = "vmTest"
 
     fun postLogin(requestLoginModel: RequestLoginModel) = viewModelScope.launch(Dispatchers.IO) {
-        repository.postLogin(requestLoginModel).enqueue(object : retrofit2.Callback<ResponseLoginModel> {
+        postLoginUseCase.invoke(requestLoginModel).enqueue(object : retrofit2.Callback<ResponseLoginModel> {
             override fun onResponse(
                 call: Call<ResponseLoginModel>,
                 response: Response<ResponseLoginModel>
