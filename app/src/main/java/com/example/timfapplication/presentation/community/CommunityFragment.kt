@@ -2,17 +2,13 @@ package com.example.timfapplication.presentation.community
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.timfapplication.R
 import com.example.timfapplication.databinding.FragmentCommunityBinding
-import com.example.timfapplication.domain.entity.community.Data
 import com.example.timfapplication.domain.entity.community.RequestModel
 import com.example.timfapplication.domain.entity.community.SearchObj
 import com.example.timfapplication.presentation.base.BaseFragment

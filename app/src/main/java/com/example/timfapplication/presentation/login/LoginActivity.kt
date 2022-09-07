@@ -21,7 +21,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        supportActionBar?.hide()
         clickToast()
 
         val btnLogin = findViewById<Button>(R.id.btn_login)

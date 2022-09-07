@@ -2,6 +2,8 @@ package com.example.timfapplication.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.example.timfapplication.R
 import com.example.timfapplication.presentation.calculate.CalculateFragment
@@ -37,6 +39,10 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
     }
 
 
