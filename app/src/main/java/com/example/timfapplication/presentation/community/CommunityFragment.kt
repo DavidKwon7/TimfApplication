@@ -60,7 +60,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             }
         })
 
-        binding.rvBoard.adapter = CommunityAdapter()
+        binding.rvBoard.adapter = CommunityAdapter(requireContext())
 
         val requestModel = RequestModel(
             length = 1,

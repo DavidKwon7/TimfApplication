@@ -23,4 +23,15 @@ data class Data(
     @SerializedName("creatDt")
     val creatDt: String?,
 
+    // 작성자 프로필 이미지 경로
+    @SerializedName("userProfileFilePth")
+    val userProfileFilePth: Any?,
+
+    // 작성자 닉네임
+    @SerializedName("wrterNcnm")
+    val wrterNcnm: String?,
+
+    @SerializedName("updtDt")
+    val updtDt: String?
+
     )

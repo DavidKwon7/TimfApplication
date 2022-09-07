@@ -1,16 +1,18 @@
 package com.example.timfapplication.presentation.community
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.timfapplication.R
 import com.example.timfapplication.domain.entity.community.ResponseModel
 
-class CommunityAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CommunityAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val ITEM = 1
@@ -37,7 +39,11 @@ class CommunityAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             repo.data?.forEach {
                 itemView.findViewById<TextView>(R.id.tv_title).text = it?.boardSj
                 itemView.findViewById<TextView>(R.id.tv_description).text = it?.boardCn
+                itemView.findViewById<TextView>(R.id.tv_time).text = it?.creatDt
+                itemView.findViewById<TextView>(R.id.tv_nickname).text = it?.wrterNcnm
+
             }
+
 
             itemView.setOnClickListener {
                 itemClickListener(repo)
@@ -72,6 +78,7 @@ class CommunityAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is CommunityViewHolder) {
             holder.bind(items[position]!!)
+
         } else {
 
         }
