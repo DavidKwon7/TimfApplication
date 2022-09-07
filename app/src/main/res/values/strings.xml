@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TimfApplication</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="calculate">calculate</string>
+    <string name="community">community</string>
+    <string name="home">home</string>
+    <string name="job">job</string>
+    <string name="review">review</string>
 </resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/item_homeFragment"
+        android:icon="@drawable/menu_home"
+        tools:ignore="MenuTitle" />
+
+    <item
+        android:id="@+id/item_jobFragment"
+        android:icon="@drawable/menu_job"
+        tools:ignore="MenuTitle" />
+
+    <item
+        android:id="@+id/item_calculateFragment"
+        android:icon="@drawable/menu_calculate"
+        tools:ignore="MenuTitle" />
+
+    <item
+        android:id="@+id/item_communityFragment"
+        android:icon="@drawable/menu_community"
+        tools:ignore="MenuTitle" />
+
+    <item
+        android:id="@+id/item_reviewFragment"
+        android:icon="@drawable/menu_review"
+        tools:ignore="MenuTitle" />
+
+</menu>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_menu"
+    app:startDestination="@id/calculateFragment">
+
+    <fragment
+        android:id="@+id/calculateFragment"
+        android:name="com.example.timfapplication.CalculateFragment"
+        android:label="fragment_calculate"
+        tools:layout="@layout/fragment_calculate" />
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.example.timfapplication.CommunityFragment"
+        android:label="fragment_community"
+        tools:layout="@layout/fragment_community" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.timfapplication.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/jobFragment"
+        android:name="com.example.timfapplication.JobFragment"
+        android:label="fragment_job"
+        tools:layout="@layout/fragment_job" />
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="com.example.timfapplication.ReviewFragment"
+        android:label="fragment_review"
+        tools:layout="@layout/fragment_review" />
+</navigation>
