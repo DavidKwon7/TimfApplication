@@ -12,7 +12,8 @@ import com.bumptech.glide.Glide
 import com.example.timfapplication.R
 import com.example.timfapplication.domain.entity.community.ResponseModel
 
-class CommunityAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CommunityAdapter() :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val ITEM = 1
@@ -23,8 +24,10 @@ class CommunityAdapter(private val context: Context) : RecyclerView.Adapter<Recy
     private lateinit var itemClickListener: (ResponseModel) -> Unit
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setItems(responseModel: ResponseModel,
-                 itemClickListener: (ResponseModel) -> Unit) {
+    fun setItems(
+        responseModel: ResponseModel,
+        itemClickListener: (ResponseModel) -> Unit
+    ) {
         this.items.clear()
         this.items.add(responseModel)
         this.itemClickListener = itemClickListener
@@ -34,7 +37,7 @@ class CommunityAdapter(private val context: Context) : RecyclerView.Adapter<Recy
     inner class CommunityViewHolder(
         itemView: View,
         val itemClickListener: (ResponseModel) -> Unit
-    ): RecyclerView.ViewHolder(itemView) {
+    ) : RecyclerView.ViewHolder(itemView) {
         fun bind(repo: ResponseModel) {
             repo.data?.forEach {
                 itemView.findViewById<TextView>(R.id.tv_title).text = it?.boardSj
@@ -53,7 +56,7 @@ class CommunityAdapter(private val context: Context) : RecyclerView.Adapter<Recy
 
     inner class LoadingViewHolder(
         itemView: View
-    ): RecyclerView.ViewHolder(itemView) {
+    ) : RecyclerView.ViewHolder(itemView) {
         val progressBar = itemView.findViewById<ProgressBar>(R.id.progressBar)!!
     }
 
@@ -67,10 +70,12 @@ class CommunityAdapter(private val context: Context) : RecyclerView.Adapter<Recy
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == ITEM) {
-            val layoutInflater = LayoutInflater.from(parent.context).inflate(R.layout.item_community, parent, false)
+            val layoutInflater =
+                LayoutInflater.from(parent.context).inflate(R.layout.item_community, parent, false)
             CommunityViewHolder(layoutInflater, itemClickListener)
         } else {
-            val layoutInflater = LayoutInflater.from(parent.context).inflate(R.layout.item_loading, parent, false)
+            val layoutInflater =
+                LayoutInflater.from(parent.context).inflate(R.layout.item_loading, parent, false)
             LoadingViewHolder(layoutInflater)
         }
     }

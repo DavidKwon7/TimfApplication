@@ -34,4 +34,4 @@ data class Data(
     @SerializedName("updtDt")
     val updtDt: String?
 
-    )
+)

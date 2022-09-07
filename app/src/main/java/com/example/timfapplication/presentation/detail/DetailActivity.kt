@@ -1,6 +1,5 @@
 package com.example.timfapplication.presentation.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.timfapplication.R
 import com.example.timfapplication.databinding.ActivityDetailBinding

@@ -42,7 +42,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                 super.onScrolled(recyclerView, dx, dy)
                 val layoutManager = binding.rvBoard.layoutManager as LinearLayoutManager
                 if (!isLoading) {
-                    if (layoutManager != null && layoutManager.findLastCompletelyVisibleItemPosition() == dataItems.size -1) {
+                    if (layoutManager != null && layoutManager.findLastCompletelyVisibleItemPosition() == dataItems.size - 1) {
                         isLoading = true
                         getMoreData()
                     }
@@ -56,7 +56,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             }
         })
 
-        binding.rvBoard.adapter = CommunityAdapter(requireContext())
+        binding.rvBoard.adapter = CommunityAdapter()
 
         val requestModel = RequestModel(
             length = 1,
@@ -76,20 +76,20 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
 
         vm.postData(requestModel)
 
-      /*  binding.btnNew.setOnClickListener {
-            Toast.makeText(requireContext(), "버튼을 눌렀습니다", Toast.LENGTH_SHORT).show()
-            vm.postData(requestModel)
-        }*/
+        /*  binding.btnNew.setOnClickListener {
+              Toast.makeText(requireContext(), "버튼을 눌렀습니다", Toast.LENGTH_SHORT).show()
+              vm.postData(requestModel)
+          }*/
 
         observing()
     }
 
     private fun getMoreData() {
         dataItems.add(null)
-        binding.rvBoard.adapter?.notifyItemInserted(dataItems.size -1)
-        dataItems.removeAt(dataItems.size -1)
+        binding.rvBoard.adapter?.notifyItemInserted(dataItems.size - 1)
+        dataItems.removeAt(dataItems.size - 1)
         val currentSize = dataItems.size
-        for (i in currentSize +1 until currentSize + 10) {
+        for (i in currentSize + 1 until currentSize + 10) {
             dataItems.add("item $i")
         }
         binding.rvBoard.adapter?.notifyDataSetChanged()
@@ -107,7 +107,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                     intent.putExtra("content", it.data?.forEach { it?.boardCn }.toString())
                     startActivity(intent)
                 }
-                )
+            )
 
         }
     }
