@@ -30,10 +30,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>({ ActivityLoginBinding.
 
             when {
                 id.isEmpty() -> {
-                    Toast.makeText(this, "아이디를 입력해주세요", Toast.LENGTH_SHORT).show()
+                    toastMsg("아이디를 입력해주세요")
                 }
                 pw.isEmpty() -> {
-                    Toast.makeText(this, "비밀번호를 입력해주세요", Toast.LENGTH_SHORT).show()
+                    toastMsg("비밀번호를 입력해주세요")
                 }
                 else -> {
                     val requestLoginModel = RequestLoginModel(
@@ -46,10 +46,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>({ ActivityLoginBinding.
                 }
             }
         }
-    }
-
-    private fun login() {
-
     }
 
     private fun toastMsg(msg: String) {

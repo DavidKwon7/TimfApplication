@@ -18,6 +18,7 @@
         android:id="@+id/et_pw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@+id/et_id"
         android:hint="password"/>
 
