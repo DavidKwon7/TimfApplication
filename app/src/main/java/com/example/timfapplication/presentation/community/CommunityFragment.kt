@@ -1,5 +1,6 @@
 package com.example.timfapplication.presentation.community
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,9 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.timfapplication.R
 import com.example.timfapplication.databinding.FragmentCommunityBinding
+import com.example.timfapplication.domain.entity.community.Data
 import com.example.timfapplication.domain.entity.community.RequestModel
 import com.example.timfapplication.domain.entity.community.SearchObj
 import com.example.timfapplication.presentation.base.BaseFragment
+import com.example.timfapplication.presentation.detail.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -75,10 +78,12 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             start = 0
         )
 
-        binding.btnNew.setOnClickListener {
+        vm.postData(requestModel)
+
+      /*  binding.btnNew.setOnClickListener {
             Toast.makeText(requireContext(), "버튼을 눌렀습니다", Toast.LENGTH_SHORT).show()
             vm.postData(requestModel)
-        }
+        }*/
 
         observing()
     }
@@ -98,7 +103,15 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
 
     private fun observing() {
         vm.boardLiveData.observe(viewLifecycleOwner) {
-            (binding.rvBoard.adapter as CommunityAdapter).setItems(it)
+            (binding.rvBoard.adapter as CommunityAdapter).setItems(
+                it,
+                itemClickListener = {
+                    val intent = Intent(getActivity(), DetailActivity::class.java)
+                    intent.putExtra("title", it.data?.forEach { it?.boardSj }.toString())
+                    intent.putExtra("content", it.data?.forEach { it?.boardCn }.toString())
+                    startActivity(intent)
+                }
+                )
 
         }
     }

@@ -18,21 +18,29 @@ class CommunityAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     private var items = mutableListOf<ResponseModel>()
+    private lateinit var itemClickListener: (ResponseModel) -> Unit
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setItems(responseModel: ResponseModel) {
+    fun setItems(responseModel: ResponseModel,
+                 itemClickListener: (ResponseModel) -> Unit) {
         this.items.clear()
         this.items.add(responseModel)
+        this.itemClickListener = itemClickListener
         notifyDataSetChanged()
     }
 
     inner class CommunityViewHolder(
-        itemView: View
+        itemView: View,
+        val itemClickListener: (ResponseModel) -> Unit
     ): RecyclerView.ViewHolder(itemView) {
         fun bind(repo: ResponseModel) {
             repo.data?.forEach {
                 itemView.findViewById<TextView>(R.id.tv_title).text = it?.boardSj
                 itemView.findViewById<TextView>(R.id.tv_description).text = it?.boardCn
+            }
+
+            itemView.setOnClickListener {
+                itemClickListener(repo)
             }
         }
     }
@@ -54,7 +62,7 @@ class CommunityAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == ITEM) {
             val layoutInflater = LayoutInflater.from(parent.context).inflate(R.layout.item_community, parent, false)
-            CommunityViewHolder(layoutInflater)
+            CommunityViewHolder(layoutInflater, itemClickListener)
         } else {
             val layoutInflater = LayoutInflater.from(parent.context).inflate(R.layout.item_loading, parent, false)
             LoadingViewHolder(layoutInflater)
